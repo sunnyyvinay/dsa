@@ -11,7 +11,7 @@ package sort;
  * for merging two halves. The merge(arr, l, m, r) is key process that assumes that arr[l--m]
  * and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one.
  * 
- * 
+ * O(nLog(n))
  */
 
 public class MergeSort {

@@ -1,0 +1,6 @@
+Asymptotic Analysis
+- suppress constant factors (environmental factors and lower-order terms (terms that are irrelevant for large inputs)
+- EX. running time of MergeSort is O(nlog(n)), without constant factors and terms
+- O(n) is linear time, O(n^2) is quadratic time
+- Big O notation ignores constant factors such as 2 or 1/2
+- T(n) = O(f(n)) if and only if there exist constants c, n > 0 such that T(n) <= cf(n)
