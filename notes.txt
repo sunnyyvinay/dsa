@@ -1,6 +1,12 @@
 Asymptotic Analysis
 - suppress constant factors (environmental factors and lower-order terms (terms that are irrelevant for large inputs)
 - EX. running time of MergeSort is O(nlog(n)), without constant factors and terms
-- O(n) is linear time, O(n^2) is quadratic time
 - Big O notation ignores constant factors such as 2 or 1/2
-- T(n) = O(f(n)) if and only if there exist constants c, n > 0 such that T(n) <= cf(n)
+
+Big O notation
+- time complexity
+- (fastest) constant, logarithmic, linear, log-star, quadratic (slowest)
+
+Stable vs. Unstable sort
+- Stable sorts keep the relative positioning of elements
+- EX. If there is a 9 at index 2 and a 9 at index 5, the algorithm will keep the first 9 before the second one
