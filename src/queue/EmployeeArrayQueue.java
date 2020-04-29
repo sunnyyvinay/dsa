@@ -1,8 +1,9 @@
 package queue;
 
 /*
- * Implementation of Queue backed by an array. Queues follow FIFO (first in, first out). Front refers to the front of the array
- * and changes when calling remove(). Back is the back of the array and represents the length
+ * Implementation of a circularQueue backed by an array. Queues follow FIFO (first in, first out). Front refers to the front of the
+ * array and changes when calling remove(). Back is the back of the array and represents the length. The circular queue allows the back
+ * variable to loop around to the front of the array instead of having to increase the array size.
  *
  * add(): Adds element to back of array
  * remove(): Removes element from front of the array
@@ -21,13 +22,25 @@ public class EmployeeArrayQueue {
     }
 
     public void add(Employee employee) {
-        if (back == queue.length) { // Resize array if full
+        if (size() == queue.length-1) { // Resize array if full
+            int numItems = size();
             Employee[] newArray = new Employee[2 * queue.length];
-            System.arraycopy(queue, 0, newArray, 0, queue.length);
+
+            System.arraycopy(queue, front, newArray, 0, queue.length-front);
+            System.arraycopy(queue, 0, newArray, queue.length-1, back);
+
             queue = newArray;
+
+            front = 0;
+            back = numItems;
         }
+
         queue[back] = employee;
-        back++;
+        if (back < queue.length - 1) {
+            back++;
+        } else {
+            back = 0;
+        }
     }
 
     public Employee remove() {
@@ -41,6 +54,8 @@ public class EmployeeArrayQueue {
          if (size() == 1) {
              front = 0;
              back = 0;
+         } else if (front == queue.length) {
+            front = 0;
          }
          return employee;
     }
@@ -53,12 +68,26 @@ public class EmployeeArrayQueue {
     }
 
     public int size() {
-        return back - front;
+        if (front <= back) {
+            // queue has not wrapped
+            return back - front;
+        } else {
+            return back - front + queue.length;
+        }
     }
 
     public void printQueue() {
-        for (int i = front; i < back; i++) {
-            System.out.println(queue[i]);
+        if (front <= back) {
+            for (int i = front; i < back; i++) {
+                System.out.println(queue[i]);
+            }
+        } else {
+            for (int i = front; i < queue.length; i++) {
+                System.out.println(queue[i]);
+            }
+            for (int i = 0; i < back; i++) {
+                System.out.println(queue[i]);
+            }
         }
     }
 }
