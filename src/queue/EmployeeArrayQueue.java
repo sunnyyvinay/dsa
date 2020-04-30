@@ -10,21 +10,23 @@ package queue;
  * peek(): Returns element at the front of the array
  */
 
+import hashtable.Employee;
+
 import java.util.NoSuchElementException;
 
 public class EmployeeArrayQueue {
-    private Employee[] queue;
+    private hashtable.Employee[] queue;
     private int front;
     private int back;
 
     public EmployeeArrayQueue(int capacity) {
-        queue = new Employee[capacity];
+        queue = new hashtable.Employee[capacity];
     }
 
-    public void add(Employee employee) {
+    public void add(hashtable.Employee employee) {
         if (size() == queue.length-1) { // Resize array if full
             int numItems = size();
-            Employee[] newArray = new Employee[2 * queue.length];
+            hashtable.Employee[] newArray = new hashtable.Employee[2 * queue.length];
 
             System.arraycopy(queue, front, newArray, 0, queue.length-front);
             System.arraycopy(queue, 0, newArray, queue.length-1, back);
@@ -43,11 +45,11 @@ public class EmployeeArrayQueue {
         }
     }
 
-    public Employee remove() {
+    public hashtable.Employee remove() {
          if (size() == 0) {
              throw new NoSuchElementException();
          }
-         Employee employee = queue[front];
+         hashtable.Employee employee = queue[front];
          queue[front] = null;
          front++;
 

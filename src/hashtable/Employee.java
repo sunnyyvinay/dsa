@@ -1,4 +1,4 @@
-package queue;
+package hashtable;
 
 import java.util.Objects;
 
@@ -41,7 +41,7 @@ public class Employee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        hashtable.Employee employee = (hashtable.Employee) o;
+        Employee employee = (Employee) o;
         return id == employee.id &&
                 Objects.equals(firstName, employee.firstName) &&
                 Objects.equals(lastName, employee.lastName);
