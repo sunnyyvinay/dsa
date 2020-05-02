@@ -5,6 +5,7 @@ package hashtable;
  *
  * Hashtables store key/value pairs. Before storing values, the key must be hashed. Collisions occur when two different values get hashed
  * to the same index. There are ways to deal with these collisions. Hashtables are best for retrieval because of constant time retrieval.
+ * This implementation uses linear probing to handle collisions
  *
  * Linear probing handles collisions by moving up indexes until there is an empty spaces.
  */
@@ -55,6 +56,17 @@ public class SimpleHashtable {
         }
         Employee employee = hashtable[hashedKey].employee;
         hashtable[hashedKey] = null;
+
+        // Without this there would be a higher load factor
+        // This rehashes the hashtable
+        StoredEmployee[] oldHashtable = hashtable; // Create a temporary hashtable
+        hashtable = new StoredEmployee[oldHashtable.length];
+        for (int i = 0; i < oldHashtable.length; i++) {
+            if (oldHashtable[i] != null) {
+                put(oldHashtable[i].key, oldHashtable[i].employee);
+            }
+        }
+
         return employee;
     }
 
