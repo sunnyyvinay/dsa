@@ -5,9 +5,12 @@ import java.util.*;
 /*
  * Demo of Bitset in JDK.
  *
- * A bitset is a special array that stores bit values.
+ * A bitset is a special array that stores bits represented by boolean values (1 and 0).
+ * EX: setting specific indexes to true creates bitsets such as 10101010101010000111 in which operations such as AND, OR, XOR
+ * can be used with other bitsets.
  *
  * https://www.tutorialspoint.com/java/java_bitset_class.htm
+ * https://www.developer.com/java/data/exploring-java-bitset.html
  */
 
 public class BitsetDemo {
