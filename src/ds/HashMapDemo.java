@@ -13,7 +13,8 @@ import java.util.Map;
 
 public class HashMapDemo {
     public static void main(String[] args) {
-        HashMap<Integer, Integer> map = new HashMap<>(); map.put(1, 5); // [(1, 5)]
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(1, 5); // [(1, 5)]
         map.put(3, 14); // [(1, 5); (3, 14)]
         map.put(2, 7); // [(1, 5); (3, 14); (2, 7)]
         map.remove(2); // [(1, 5); (3, 14)]

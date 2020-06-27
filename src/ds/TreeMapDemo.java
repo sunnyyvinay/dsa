@@ -11,7 +11,8 @@ import java.util.TreeMap;
 
 public class TreeMapDemo {
     public static void main(String[] args) {
-        TreeMap<Integer, Integer> map = new TreeMap<>(); map.put(3, 5); // [(3, 5)]
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        map.put(3, 5); // [(3, 5)]
         map.put(11, 4); // [(3, 5); (11, 4)]
         map.put(10, 491); // [(3, 5); (10, 491); (11, 4)]
 
