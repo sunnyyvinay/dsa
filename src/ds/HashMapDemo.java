@@ -1,9 +1,11 @@
 package ds;
 
 /*
- * https://www.geeksforgeeks.org/java-util-hashmap-in-java-with-examples/
+ * Demo of Hash Map
  *
  * Hashmaps provides the basic implementation of the Map interface of Java. It stores the data in (Key, Value) pairs.
+ *
+ * https://www.geeksforgeeks.org/java-util-hashmap-in-java-with-examples/
  */
 
 import java.util.HashMap;
@@ -11,29 +13,15 @@ import java.util.Map;
 
 public class HashMapDemo {
     public static void main(String[] args) {
-        // Create an empty hash map
-        HashMap<String, Integer> map
-                = new HashMap<>();
-
-        // Add elements to the map
-        map.put("vishal", 10);
-        map.put("sachin", 30);
-        map.put("vaibhav", 20);
-
-        // Print size and content
-        System.out.println("Size of map is:- "
-                + map.size());
-        System.out.println(map);
-
-        // Check if a key is present and if present, print value
-        if (map.containsKey("vishal")) {
-            Integer a = map.get("vishal");
-            System.out.println("value for key"
-                    + " \"vishal\" is:- "
-                    + a);
-        }
+        HashMap<Integer, Integer> map = new HashMap<>(); map.put(1, 5); // [(1, 5)]
+        map.put(3, 14); // [(1, 5); (3, 14)]
+        map.put(2, 7); // [(1, 5); (3, 14); (2, 7)]
+        map.remove(2); // [(1, 5); (3, 14)]
+        System.out.println(map.get(1)); // 5
+        System.out.println(map.containsKey(7)); // false
+        System.out.println(map.containsKey(1)); // true
 
         // Traversal of HashMap
-        for (Map.Entry<String, Integer> e : map.entrySet()) System.out.println(e.getKey() + " " + e.getValue());
+        for (Map.Entry<Integer, Integer> e : map.entrySet()) System.out.println(e.getKey() + " " + e.getValue());
     }
 }

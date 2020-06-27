@@ -3,10 +3,10 @@ package ds;
 import java.util.PriorityQueue;
 
 /*
- * JDK demo of priority queue.
+ * Demo of Priority Queues
  *
- * In priority queues, objects are sorted based on priority or natural order. The "head" is always the smallest value and the
- * "tail" is the largest.
+ * In priority queues, objects are sorted based on priority or natural order. The lowest value is always at the front of the queue
+ *
  *
  * https://docs.oracle.com/javase/7/docs/api/java/util/PriorityQueue.html
  * https://www.geeksforgeeks.org/priority-queue-class-in-java-2/
@@ -14,22 +14,15 @@ import java.util.PriorityQueue;
 
 public class PriorityQueueDemo {
     public static void main(String[] args) {
-        // Creating empty priority queue
-        PriorityQueue<Integer> pQueue = new PriorityQueue<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        pq.add(7); // [7]
+        pq.add(2); // [7, 2]
+        pq.add(1); // [7, 2, 1]
+        pq.add(5); // [7, 5, 2, 1]
 
-        // Adding items to the pQueue using add()
-        pQueue.add(10);
-        pQueue.add(20);
-        pQueue.add(15);
-
-        // Printing the top element of PriorityQueue
-        System.out.println(pQueue.peek());
-
-        // Printing the top element and removing it
-        // from the PriorityQueue container
-        System.out.println(pQueue.poll());
-
-        // Printing the top element again
-        System.out.println(pQueue.peek());
+        System.out.println(pq.peek()); // 1
+        pq.poll(); // [7, 5, 2]
+        pq.poll(); // [7, 5]
+        pq.add(6); // [7, 6, 5]
     }
 }
