@@ -4,7 +4,7 @@ package extras;
  * Demo of Comparator class used to sort custom objects or sort elements in a custom order
  *
  * Comparator is its own class. When sorting primitive types such as integers in a custom order, use the Integer object class
- * with Array.sort() and Comparator.
+ * with Array.sort() and Comparator. To sort in decreasing order, use -Integer.compare(x, y). Sorting by two criteria is also possible.
  */
 
 import java.util.Arrays;

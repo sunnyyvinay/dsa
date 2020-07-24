@@ -9,7 +9,7 @@ package search;
  * sorted already.
  *
  * This can be implemented recursively or iteratively
- * O(logn) time complexity - keeps dividing the array in half
+ * O(log n) time complexity - keeps dividing the array in half
  */
 
 public class BinarySearch {
