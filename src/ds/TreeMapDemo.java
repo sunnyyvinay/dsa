@@ -6,7 +6,7 @@ import java.util.TreeMap;
  * Demo of Tree Maps
  *
  * A tree map is an ordered map and supports the same operations that an unordered map supports but supports some additional
- * methods, just like the Tree Set
+ * methods, just like the Tree Set. It is also sorted in increasing order based on the keys
  */
 
 public class TreeMapDemo {

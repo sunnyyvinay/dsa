@@ -20,21 +20,21 @@ public class ComparatorDemo {
             System.out.println(p.height + " " + p.weight);
         }
     }
-}
 
-class Person2 {
-    int height, weight;
-    public Person2(int h, int w) {
-        height = h; weight = w;
+    static class Person2 {
+        public int height, weight;
+        public Person2(int h, int w) {
+            height = h; weight = w;
+        }
     }
-}
 
-class Comp implements Comparator<Person2> {
-    public int compare(Person2 a, Person2 b) {
-        if (a.height == b.height) {
-            return Integer.compare(a.weight, b.weight);
-        } else {
-            return Integer.compare(a.height, b.height);
+    static class Comp implements Comparator<Person2> {
+        public int compare(Person2 a, Person2 b) {
+            if (a.height == b.height) {
+                return Integer.compare(a.weight, b.weight);
+            } else {
+                return Integer.compare(a.height, b.height);
+            }
         }
     }
 }

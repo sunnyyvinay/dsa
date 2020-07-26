@@ -20,15 +20,15 @@ public class ComparableDemo {
             System.out.println(p.height + " " + p.weight);
         }
     }
-}
 
-class Person implements Comparable<Person> {
-    int height, weight;
-    public Person(int h, int w) {
-        height = h; weight = w;
-    }
+    static class Person implements Comparable<Person> {
+        public int height, weight;
+        public Person(int h, int w) {
+            height = h; weight = w;
+        }
 
-    public int compareTo(Person p) {
-        return Integer.compare(height, p.height);
+        public int compareTo(Person p) {
+            return Integer.compare(height, p.height);
+        }
     }
 }

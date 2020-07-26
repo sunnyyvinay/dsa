@@ -6,8 +6,7 @@ import java.util.PriorityQueue;
  * Demo of Priority Queues
  *
  * In priority queues, objects are sorted based on priority or natural order. The lowest value is always at the front of the queue
- *
- *
+ * We delete and retrieve the element of lowest rather than highest priority.
  * https://docs.oracle.com/javase/7/docs/api/java/util/PriorityQueue.html
  * https://www.geeksforgeeks.org/priority-queue-class-in-java-2/
  */

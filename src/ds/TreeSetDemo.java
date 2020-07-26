@@ -7,6 +7,7 @@ import java.util.TreeSet;
  *
  * A tree set is an ordered set. Insertions, deletions, and searches on the ordered set require O(log n) time,
  * based on the number of elements in the set. There are additional methods than just what Hash sets contain.
+ * They are in increasing order.
  *
  * https://www.geeksforgeeks.org/set-in-java/
  * https://docs.oracle.com/javase/8/docs/api/java/util/Set.html

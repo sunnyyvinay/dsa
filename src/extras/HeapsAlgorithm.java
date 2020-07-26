@@ -41,3 +41,27 @@ public class HeapsAlgorithm {
         System.out.println();
     }
 }
+
+/* Generating permutations and checking them in lexicographical order
+static boolean[] used;
+    static ArrayList<Integer> cur = new ArrayList<Integer>();
+    static int n;
+    static void gen() {
+        if (cur.size() == n) {
+            check(cur); // check current permutation for validity, or print it, etc.
+            return;
+        }
+        for (int i = 0; i < n; ++i) if (!used[i]) {
+            used[i] = true; cur.add(i+1);
+            gen();
+            used[i] = false; cur.remove(cur.size()-1);
+        }
+    }
+    static void genPerm(int _n) {
+        n = _n; used = new boolean[n];
+        gen();
+    }
+    public static void main(String[] Args) {
+        genPerm(5);
+    }
+ */
