@@ -1,4 +1,4 @@
-package graphs;
+package graphtheory;
 
 /*
  * Adjacency List way of representing graphs

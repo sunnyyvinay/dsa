@@ -1,4 +1,4 @@
-package graphs;
+package graphtheory;
 
 /*
  * Adjacency Matrix way of representing graphs

@@ -1,13 +1,15 @@
-package graphs;
+package graphtheory;
 
 /*
  * Depth-first search (DFS) on graph
  *
- * DFS continues down a single path of nodes on a graph. When there are no more in the path, it backtracks to nodes that have
- * not been visited yet. The start is the zero-indexed number of the starting vertex.
+ * DFS continues down a single path of nodes on a graph. When every node in the path has been visited, it backtracks to
+ * nodes that have not been visited yet. The start is the zero-indexed number of the starting vertex.
  *
  * If you encounter stack overflows while using recursive DFS, you can write an iterative DFS, which is just BFS but
- * with nodes stored on a stack rather than a queue.
+ * with nodes stored on a stack rather than a queue. Applications of DFS include connectivity check
+ *
+ * https://csacademy.com/lesson/depth_first_search/
  */
 
 import java.util.ArrayList;

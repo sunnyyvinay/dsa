@@ -1,4 +1,4 @@
-package graphs;
+package graphtheory;
 
 /*
  * Breadth-first search (BFS) on graph

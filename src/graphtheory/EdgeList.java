@@ -1,4 +1,4 @@
-package graphs;
+package graphtheory;
 
 /*
  * Edge List way of representing graphs
