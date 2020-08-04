@@ -18,12 +18,17 @@ public class DepthFirstSearch {
     static ArrayList<Integer>[] adj; // Represent graph using Adjacency List
     static boolean[] visited; // which nodes we have visited
 
+    // To find the number of nodes in a connected component, keep a count of the connected nodes
     static void dfs(int node) {
+        //int visCount = 1;
         visited[node] = true;
         for(int next : adj[node]) { // goes through each of the current node's neighbors
             if(!visited[next]) {
+                //visCount += dfs(next);
                 dfs(next);
             }
         }
+
+        //return visCount;
     }
 }
