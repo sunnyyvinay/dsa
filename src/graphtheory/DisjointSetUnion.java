@@ -19,7 +19,7 @@ public class DisjointSetUnion {
     }
 
     static int find(int x) { //finds the root of the set of x
-        if(x == parent[x]) { //if x is the parent of itself, it is the root
+        if (x == parent[x]) { //if x is the parent of itself, it is the root
             return x;
         } else {
             // we set the direct parent to the root of the set to reduce path length (path compression optimization)

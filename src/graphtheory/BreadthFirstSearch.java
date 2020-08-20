@@ -6,6 +6,8 @@ package graphtheory;
  * BFS visits nodes in order of distance away from the starting node. First, it visits nodes 1 edge away, then nodes that are
  * 2 edges away, and so on. It is not recursive, so DFS is usually better to use. BFS is used for finding the distance
  * away from the starting node for all nodes in an unweighted graph.
+ *
+ * Time complexity: O(V + E) , where V is the number of vertices and E is the number of edges
  */
 
 import java.util.ArrayList;

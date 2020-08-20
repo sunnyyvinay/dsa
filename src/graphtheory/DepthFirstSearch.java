@@ -31,4 +31,17 @@ public class DepthFirstSearch {
 
         //return visCount;
     }
+
+    /* COUNTS NUMBER OF CONNECTED COMPONENTS IN GRAPH
+    static int count_components() {
+        int count=0;
+        for(int i=1;i<=N;++i)
+            if(!visited[i]) {
+                count++;
+                dfs(i);
+            }
+        return count;
+    }
+     */
+
 }
