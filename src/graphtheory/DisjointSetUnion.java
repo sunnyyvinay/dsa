@@ -4,7 +4,8 @@ package graphtheory;
  * Disjoint Set Data Structure (DSU)
  *
  * DSU operates with a set partitioned in several disjoint subsets. It supports two basic operations: Merge two sets and
- * check if two sets are connected. DFS or BFS could always be used to do this but it is a lot slower.
+ * check if two sets are connected. DFS or BFS could always be used to do this but it is a lot slower. It is better to
+ * use DSU instead of DFS when you are adding edges at execution time.
  *
  * https://csacademy.com/lesson/disjoint_data_sets/
  */
@@ -34,4 +35,10 @@ public class DisjointSetUnion {
             parent[d] = c; //merge the sets by setting the parent of d to c
         }
     }
+
+    /* TO FIND THE NUMBER OF CONNECTED COMPONENTS
+        for (int i = 0; i < n; i++) {
+            if (parent[i] == i) ans++;
+        }
+    */
 }
