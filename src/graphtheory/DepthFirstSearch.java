@@ -35,7 +35,7 @@ public class DepthFirstSearch {
     /* COUNTS NUMBER OF CONNECTED COMPONENTS IN GRAPH
     static int count_components() {
         int count=0;
-        for(int i=1;i<=N;++i)
+        for(int i = 0; i < n; ++i)
             if(!visited[i]) {
                 count++;
                 dfs(i);
