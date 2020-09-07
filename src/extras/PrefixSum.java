@@ -18,9 +18,9 @@ public class PrefixSum {
     public static void main(String[] args) {
         int arr[] = { 10, 4, 16, 20 };
         int n = arr.length;
-        int prefixSum[] = new int[n];
+        int prefixSum[] = new int[n+1];
         fillPrefixSum(arr, n, prefixSum);
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < prefixSum.length; i++)
             System.out.print(prefixSum[i] + " ");
         System.out.println();
         System.out.println();
@@ -28,20 +28,20 @@ public class PrefixSum {
         int matrix[][] = {{1, 5, 6, 11, 8}, {1, 7, 11, 9, 4}, {4, 6, 1, 3, 2}, {7, 5, 4, 2, 3}};
         n = matrix.length;
         int m = matrix[0].length;
-        int prefix2DSum[][] = new int[n][m];
+        int prefix2DSum[][] = new int[n+1][m+1];
         fill2DPrefixSum(matrix, prefix2DSum);
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++)
+        for (int i = 0; i < prefix2DSum.length; i++) {
+            for (int j = 0; j < prefix2DSum[i].length; j++)
                 System.out.print(prefix2DSum[i][j] + " ");
             System.out.println();
         }
     }
 
     static void fillPrefixSum(int arr[], int n, int prefixSum[]) {
-        prefixSum[0] = arr[0];
+        prefixSum[0] = 0;
 
-        for(int i = 1; i < n; ++i) {
-            prefixSum[i] = prefixSum[i - 1] + arr[i];
+        for(int i = 1; i <= n; ++i) {
+            prefixSum[i] = prefixSum[i-1] + arr[i-1];
         }
     }
 
@@ -49,18 +49,23 @@ public class PrefixSum {
         int R = a.length;
         int C = a[0].length;
 
-        psa[0][0] = a[0][0];
+        for (int i = 0; i < psa.length; i++) {
+            psa[0][i] = 0;
+        }
+        for (int i = 1; i < psa.length; i++) {
+            psa[i][0] = 0;
+        }
 
         // Filling first row and first column
-        for (int i = 1; i < C; i++)
-            psa[0][i] = psa[0][i - 1] + a[0][i];
-        for (int i = 1; i < R; i++)
-            psa[i][0] = psa[i - 1][0] + a[i][0];
+        for (int i = 1; i <= C; i++)
+            psa[1][i] = psa[1][i - 1] + a[0][i-1];
+        for (int i = 1; i <= R; i++)
+            psa[i][1] = psa[i - 1][1] + a[i-1][0];
 
         // updating the values in the cells as per the general formula.
-        for (int i = 1; i < R; i++) {
-            for (int j = 1; j < C; j++) {
-                psa[i][j] = psa[i - 1][j] + psa[i][j - 1] - psa[i - 1][j - 1] + a[i][j];
+        for (int i = 2; i <= R; i++) {
+            for (int j = 2; j <= C; j++) {
+                psa[i][j] = psa[i - 1][j] + psa[i][j - 1] - psa[i - 1][j - 1] + a[i-1][j-1];
             }
         }
     }
