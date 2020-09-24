@@ -64,3 +64,16 @@ public class AnswerBinarySearch {
         return pos;
     }
 */
+
+/*
+    static int binSearch(int low,int high) {
+        if (low == high) return low;
+        if (low + 1 == high) {
+            if(check(low)) return low;
+            return high;
+        }
+        int mid = (low+high)/2;
+        if(check(mid)) return binSearch(low,mid);
+        else return binSearch(mid+1,high);
+    }
+ */
