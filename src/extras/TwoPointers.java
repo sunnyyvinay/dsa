@@ -42,8 +42,8 @@ public class TwoPointers {
     // Given an array of positive elements, find a contiguous subarray that sums to X
     public static void subarraySum(int[] arr, int x) {
         int left = 0;
-        int right = 0;
-        int sum = arr[0];
+        int right;
+        int sum = 0;
         for (right = 0; right < arr.length; right++) {
             sum += arr[right];
             while (sum > x && left < right) {
@@ -57,7 +57,8 @@ public class TwoPointers {
                 break;
             }
         }
-        System.out.println("No answer exists");
+        if (sum != x) System.out.print("No answer exists");
+        System.out.println();
     }
 
     // Finds the max sum of a subarray using Kadane's algorithm
