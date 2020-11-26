@@ -20,18 +20,18 @@ public class HeapsAlgorithm {
             heapPermutation(a, size - 1, n);
 
             // if size is odd, swap first and last element
+            int temp;
             if (size % 2 == 1) {
-                int temp = a[0];
+                temp = a[0];
                 a[0] = a[size - 1];
-                a[size - 1] = temp;
             }
 
             // If size is even, swap ith and last element
             else {
-                int temp = a[i];
+                temp = a[i];
                 a[i] = a[size - 1];
-                a[size - 1] = temp;
             }
+            a[size - 1] = temp;
         }
     }
 
