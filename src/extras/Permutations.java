@@ -8,7 +8,7 @@ package extras;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class HeapsAlgorithm {
+public class Permutations {
     static ArrayList<Integer> permutation;
     static boolean chosen[];
     static int n;
