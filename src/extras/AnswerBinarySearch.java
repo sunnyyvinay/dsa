@@ -65,7 +65,7 @@ public class AnswerBinarySearch {
     }
 */
 
-/*
+/* MIN VALUE
     static int binSearch(int low,int high) {
         if (low == high) return low;
         if (low + 1 == high) {

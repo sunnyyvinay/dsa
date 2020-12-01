@@ -1,43 +1,45 @@
 package extras;
 
 /*
- * Demonstration of Heaps Algorithm. This is used to generate all possible permutations of an array of n objects
- * https://www.geeksforgeeks.org/heaps-algorithm-for-generating-permutations/
+ * Demonstration of Generating Permutations using Recursion.
+ * https://usaco.guide/CPH.pdf#page=59
  */
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class HeapsAlgorithm {
-    public static void main(String[] args) {
-        int a[] = {1, 2, 3};
-        heapPermutation(a, a.length, a.length);
+    static ArrayList<Integer> permutation;
+    static boolean chosen[];
+    static int n;
+    static int a[];
+
+    public static void main(String[] args) throws IOException {
+        a = new int[]{1, 2, 3};
+        n = 3;
+        permutation = new ArrayList<>();
+        chosen = new boolean[n];
+        search();
     }
 
-    public static void heapPermutation(int a[], int size, int n) {
-        // if size becomes 1 then prints the obtained permutation
-        if (size == 1) {
-            printArr(a, n);
-        }
-        for (int i = 0; i < size; i++) {
-            heapPermutation(a, size - 1, n);
-
-            // if size is odd, swap first and last element
-            int temp;
-            if (size % 2 == 1) {
-                temp = a[0];
-                a[0] = a[size - 1];
+    private static void search() {
+        if (permutation.size() == n) { // process permutation
+            printArr(permutation, n);
+        } else {
+            for (int i = 0; i < n; i++) {
+                if (chosen[i]) continue;
+                chosen[i] = true;
+                permutation.add(a[i]);
+                search();
+                chosen[i] = false;
+                permutation.remove(permutation.size()-1);
             }
-
-            // If size is even, swap ith and last element
-            else {
-                temp = a[i];
-                a[i] = a[size - 1];
-            }
-            a[size - 1] = temp;
         }
     }
 
-    public static void printArr(int a[], int n) {
+    public static void printArr(ArrayList<Integer> a, int n) {
         for (int i = 0; i < n; i++)
-            System.out.print(a[i] + " ");
+            System.out.print(a.get(i) + " ");
         System.out.println();
     }
 }
