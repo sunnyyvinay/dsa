@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 public class Permutations {
     static ArrayList<Integer> permutation;
-    static boolean chosen[];
+    static boolean[] chosen;
     static int n;
-    static int a[];
+    static int[] a;
 
     public static void main(String[] args) throws IOException {
         a = new int[]{1, 2, 3};
