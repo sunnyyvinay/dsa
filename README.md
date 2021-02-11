@@ -1,2 +1,2 @@
 # algorithms
-Repo for the implementations of all my Java algorithms, data structures, and sample problems.
+Repo for implementation of different algorithms, data structures, and sample problems.
