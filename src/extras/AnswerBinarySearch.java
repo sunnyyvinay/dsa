@@ -25,24 +25,38 @@ public class AnswerBinarySearch {
         // Keep input values and call search() function to find value in the search space that works
     }
 
-    static long search() {
+    static long maxSearch() { // searches for maximum true
         long left = 0;
         long right = (long) 2E9;
         long ans = -1;
         while (left <= right) {
-            long mid = (left + right) / 2;
+            long mid = left + ((right - left) / 2);
             if (check(mid)) {
-                // right = mid;
                 left = mid + 1;
                 ans = mid;
             } else {
-                // left = mid + 1;
                 right = mid - 1;
             }
         }
 
         return ans;
-        // return left;
+    }
+
+    static long minSearch() { // searches for minimum true
+        long left = 0;
+        long right = (long) 2E9;
+        long ans = -1;
+        while (left <= right) {
+            long mid = left + ((right - left) / 2);
+            if (check(mid)) {
+                right = mid - 1;
+                ans = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+
+        return ans;
     }
 
     // This answer function must be MONOTONIC
