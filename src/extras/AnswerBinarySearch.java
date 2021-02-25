@@ -66,7 +66,7 @@ public class AnswerBinarySearch {
     }
 }
 
-/*
+/* MAX VALUE
     // Binary search based on interval jumping.
     // We start from the beginning of the array, make jumps, and reduce the jump length as we get closer to the target element.
     static long search() {
