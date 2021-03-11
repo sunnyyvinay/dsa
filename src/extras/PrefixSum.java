@@ -1,6 +1,7 @@
 package extras;
 
 /*
+ * https://usaco.guide/silver/prefix-sums-2?lang=java
  * https://www.geeksforgeeks.org/prefix-sum-array-implementation-applications-competitive-programming/
  * https://www.geeksforgeeks.org/prefix-sum-2d-array/
  *
@@ -9,8 +10,11 @@ package extras;
  * Given an array arr[] of size n, its prefix sum array is another array prefixSum[] of same size such that the value
  * of prefixSum[i] is arr[0] + arr[1] + arr[2] + … + arr[i].
  *
- * The subarray sum between indices a and b in a 1-indexed array is prefix[b] - prefix[a-1].
- * The subarray sum between rows A and a and columns B and b in a 1-indexed 2D array is
+ * The subarray sum between indices a and b in a 1-indexed array is
+ * prefix[b] - prefix[a-1].
+ *
+ * With 2D arrays, a potential solution is to take the prefix sum of each 1D array and find the subarray sum of each row.
+ * Building a prefix sum is more efficient. The subarray sum between rows A and a and columns B and b in a 1-indexed 2D array is
  * prefix[A][B] - prefix[a-1][B] - prefix[A][b-1] + prefix[a-1][b-1]
  */
 
@@ -20,12 +24,14 @@ public class PrefixSum {
         int n = arr.length;
         int[] prefixSum = new int[n+1];
         fillPrefixSum(arr, n, prefixSum);
-        for (int i = 0; i < prefixSum.length; i++)
-            System.out.print(prefixSum[i] + " ");
+        for (int value : prefixSum) System.out.print(value + " ");
         System.out.println();
         System.out.println();
 
-        int[][] matrix = {{1, 5, 6, 11, 8}, {1, 7, 11, 9, 4}, {4, 6, 1, 3, 2}, {7, 5, 4, 2, 3}};
+        int[][] matrix = {{1, 5, 6, 11, 8},
+                          {1, 7, 11, 9, 4},
+                          {4, 6, 1, 3, 2},
+                          {7, 5, 4, 2, 3}};
         n = matrix.length;
         int m = matrix[0].length;
         int[][] prefix2DSum = new int[n+1][m+1];
