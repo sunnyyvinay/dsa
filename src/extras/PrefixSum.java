@@ -10,7 +10,7 @@ package extras;
  * Given an array arr[] of size n, its prefix sum array is another array prefixSum[] of same size such that the value
  * of prefixSum[i] is arr[0] + arr[1] + arr[2] + … + arr[i].
  *
- * The subarray sum between indices a and b in a 1-indexed array is
+ * We will assume our regular array is 1-indexed. The subarray sum between indices a and b (which are 1-indexed) is
  * prefix[b] - prefix[a-1].
  *
  * With 2D arrays, a potential solution is to take the prefix sum of each 1D array and find the subarray sum of each row.

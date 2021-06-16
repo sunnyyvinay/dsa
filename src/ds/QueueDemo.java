@@ -11,7 +11,8 @@ import java.util.Queue;
 
 public class QueueDemo {
     public static void main(String[] args) {
-        Queue<Integer> q = new LinkedList<Integer>(); q.add(1); // [1]
+        Queue<Integer> q = new LinkedList<Integer>();
+        q.add(1); // [1]
         q.add(3); // [3, 1]
         q.add(4); // [4, 3, 1]
         q.poll(); // [4, 3]
