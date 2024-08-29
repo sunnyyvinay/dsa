@@ -1,6 +1,18 @@
 #include <iostream>
 using namespace std;
 
+/*
+ * LINKED LIST DATA STRUCTURE
+ *
+ * Reserves a new memory block for each item as it's added and links items together like a chain.
+ * It can be superior to arrays because element shifting isn't required.
+ *
+ * Access: O(N)
+ * Search: O(N)
+ * Insert: O(1) - if you’re at the correct position
+ * Remove: O(1) - if you’re at the correct position
+ */
+
 struct Node {
     int value;
     Node* next;
