@@ -11,8 +11,6 @@ package search;
  * This can be implemented recursively or iteratively
  * O(log n) time complexity - keeps dividing the array in half
  *
- * A sqrt function can be created using binary search. It has the same implementation as a regular search, but to have
- * precision, use the commented code at the bottom.
  */
 
 import java.util.Arrays;
@@ -45,18 +43,3 @@ public class BinarySearch {
         return -1;
     }
 }
-
-/* For computing the fractional part of square root upto given precision
-double increment = 0.1;
-    for (int i = 0; i < precision; i++) {
-        while (ans * ans <= number) {
-            ans += increment;
-        }
-
-        // loop terminates when ans * ans > number
-        ans = ans - increment;
-        increment = increment / 10;
-    }
-
-    return (float) ans;
- */
