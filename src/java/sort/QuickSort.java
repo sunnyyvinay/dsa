@@ -5,7 +5,7 @@ package sort;
  *
  * https://geeksforgeeks.org/quick-sort/
  *
- * Quick Sort uses a pivot element and divides the array into two halves. Elements that are less than the pivot go on the right and
+ * Quick Sort uses a pivot element and divides the array into two halves. Elements that are less than the pivot go on the left and
  * elements that are greater than the pivot go on the right. The pivot will be in the correct sorted position. Process is repeated for
  * right and left unsorted arrays and every element will become the pivot, so every element will be sorted. It will partition the array
  * into 1-element array like with merge sort.
