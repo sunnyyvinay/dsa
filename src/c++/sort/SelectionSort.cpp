@@ -4,6 +4,15 @@ using namespace std;
 
 void sort(vector<int>& arr);
 
+/*
+ * SELECTION SORT ALGORITHM
+ *
+ * Takes the minimum element from the decreasing subarray and swaps it with the element at the current front position.
+ *
+ * O(N^2), non-comparison/unstable
+ *
+ */
+
 void sort(vector<int>& arr) {
     for (int i = 0; i < arr.size(); i++) {
         int minIndex = i;
