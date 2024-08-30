@@ -9,7 +9,7 @@ void sort(vector<int>& arr);
  *
  * Takes the minimum element from the decreasing subarray and swaps it with the element at the current front position.
  *
- * O(N^2), non-comparison/unstable, inplace
+ * O(N^2), unstable, non-comparison, inplace
  *
  */
 

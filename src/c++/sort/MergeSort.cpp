@@ -10,7 +10,7 @@ void sort(vector<int>& arr, int begin, int end);
  * The array is recursively split in half until all subarrays have 1 or 0 elements.
  * Then each of these subarrays is merged using the merging algorithm.
  *
- * O(NlogN), comparison/stable, NOT inplace, recursion, merging, divide and conquer
+ * O(NlogN), stable, comparison, NOT inplace, recursion, merging, divide and conquer
  * 
  */
 

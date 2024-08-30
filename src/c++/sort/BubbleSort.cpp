@@ -10,7 +10,7 @@ void sort(vector<int>& arr);
  * Repeatedly swaps the adjacent elements if they are in wrong order.
  * It stops when it goes through one pass without any swaps.
  *
- * O(N^2), comparison/stable, inplace
+ * O(N^2), stable, inplace, comparison
  * 
  */
 

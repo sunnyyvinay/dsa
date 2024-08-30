@@ -11,7 +11,7 @@ void sort(vector<int>& arr);
  * Then, take the first 3 elements and keep swapping the last element over until it's in order.
  * Repeat for all n elements
  *
- * O(N^2), comparison/stable, inplace
+ * O(N^2), stable comparison, inplace
  *
  */
 

@@ -11,7 +11,7 @@ void sort(vector<int>& arr, int begin, int end);
  2: Numbers lower than the pivot move to the left side and numbers higher than the pivot move to the right side
  3: Recursively repeat for the left/right subarrays with the stopping condition as an array with 0 or 1 elements
  *
- * O(NlogN), non-comparison/unstable, inplace, divide and conquer, partitioning, recursion
+ * O(NlogN), unstable, comparison, inplace, divide and conquer, partitioning, recursion
  * 
  */
 
