@@ -3,6 +3,17 @@ using namespace std;
 
 const int MAX = 50;
 
+/*
+ * QUEUE DATA STRUCTURE
+ *
+ * Stores elements like a queue or line with FIFO structure (First In, First Out)
+ *
+ * Access (top element): O(1)
+ * Insert: O(1)
+ * Remove: O(1)
+ *
+ */
+
 class Queue {
 public:
     Queue() {

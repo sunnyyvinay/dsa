@@ -3,6 +3,17 @@ using namespace std;
 
 const int MAX = 50;
 
+/*
+ * STACK DATA STRUCTURE
+ *
+ * Stores elements like a stack with LIFO structure (Last In, First Out)
+ *
+ * Access (top element): O(1)
+ * Insert: O(1)
+ * Remove: O(1)
+ *
+ */
+
 class Stack {
 public:
     Stack() {
