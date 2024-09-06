@@ -7,8 +7,10 @@ int search(vector<int>& arr, int target);
 /*
  * BINARY SEARCH ALGORITHM
  *
- * Fast O(logN) search algorithm for sorted arrays.
+ * Search algorithm for sorted arrays.
  * Works by repeatedly dividing the array in half based on the target value.
+ *
+ * Time complexity: O(log N)
  *
  */
 
