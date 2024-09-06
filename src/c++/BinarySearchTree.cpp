@@ -26,16 +26,12 @@ public:
         root = nullptr;
     }
 
-    void destruct_tree(Node* node) {
-        if (node == nullptr) return;
-
-        destruct_tree(node->left);
-        destruct_tree(node->right);
-        delete node;
-    }
-
     ~BST() {
         destruct_tree(root);
+    }
+
+    Node* getRoot() {
+        return root;
     }
 
     void in_order_traversal(Node* node) {
@@ -54,7 +50,7 @@ public:
         }
         Node* node = root;
         while (node != nullptr) {
-            if (node->value == val) return; // value found
+            if (node->value == val) return;
             else if (node->value > val) {
                 if (node->left == nullptr) {
                     node->left = new Node;
@@ -104,9 +100,9 @@ public:
                     return;
                 } else if (node->left == nullptr || node->right == nullptr) { // ONE CHILD
                     if (parent != nullptr && parent->left == node) {
-                        parent->left = node->left == nullptr ? node->right : node->left;
+                        parent->left = (node->left == nullptr) ? node->right : node->left;
                     } else if (parent != nullptr && parent->right == node) {
-                        parent->right = parent->left = node->left == nullptr ? node->right : node->left;
+                        parent->right = (node->left == nullptr) ? node->right : node->left;
                     }
                     delete node;
                     return;
@@ -129,8 +125,7 @@ public:
                     delete successor;
                     return;
                 }
-            }
-            else if (node->value < val) {
+            } else if (node->value < val) {
                 parent = node;
                 node = node->right;
             } else if (node->value > val) {
@@ -159,7 +154,7 @@ public:
     int getMin() {
         Node* min = root;
         while (min->left != nullptr) {
-            min = min->right;
+            min = min->left;
         }
         return min->value;
     }
@@ -168,16 +163,56 @@ public:
         if (node == nullptr) return true;
 
         if (left != nullptr && left->value >= node->value) return false;
-        if (right != nullptr && right->value >= node->value) return false;
+        if (right != nullptr && right->value <= node->value) return false;
 
         return isBST(node->left, left, node) && isBST(node->right, node, right);
     }
 private:
     Node* root;
+
+    void destruct_tree(Node* node) {
+        if (node == nullptr) return;
+
+        destruct_tree(node->left);
+        destruct_tree(node->right);
+        delete node;
+    }
 };
 
 int main() {
-
+    BST bst;
+    bst.insert(8);
+    bst.insert(3);
+    bst.insert(10);
+    bst.insert(1);
+    bst.insert(6);
+    bst.in_order_traversal(bst.getRoot());                                  // 1 3 6 8 10
+    cout << endl << bst.find(6);                                             // true
+    cout << endl << bst.find(9) << endl;                                     // false
+    bst.insert(4);
+    bst.insert(7);
+    bst.insert(14);
+    bst.insert(13);
+    bst.in_order_traversal(bst.getRoot());                                 // 1 3 4 6 7 8 10 13 14
+    cout << endl << bst.height(bst.getRoot()) << endl;                     // 3
+    cout << bst.getMax() << endl;                                                // 14
+    cout << bst.getMin() << endl;                                                // 1
+    cout << bst.isBST(bst.getRoot(), nullptr, nullptr) << endl;  // true
+    bst.remove(7);
+    bst.in_order_traversal(bst.getRoot());                                 // 1 3 4 6 8 10 13 14
+    cout << endl;
+    bst.remove(14);
+    bst.in_order_traversal(bst.getRoot());                                 // 1 3 4 6 8 10 13
+    cout << endl;
+    bst.remove(13);
+    bst.insert(9);
+    bst.insert(11);
+    bst.remove(10);                                                         // 1 3 4 6 8 9 11
+    bst.in_order_traversal(bst.getRoot());                                // 1 3 4 6 8 9 11
+    cout << endl;
+    bst.insert(5);
+    bst.remove(3);
+    bst.in_order_traversal(bst.getRoot());                                // 1 4 5 6 8 9 11
 
     return 0;
 }
