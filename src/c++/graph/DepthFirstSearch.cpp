@@ -3,11 +3,11 @@
 #include <stack>
 using namespace std;
 
-int iterativeDFS(vector<vector<int>>& graph, int startNode);
-int recursiveDFS(vector<vector<int>>& graph, vector<bool> visited, int startNode);
+void iterativeDFS(vector<vector<int>>& graph, int startNode);
+void recursiveDFS(vector<vector<int>>& graph, vector<bool> visited, int startNode);
 
 /*
- * DEPTH FIRST SEARCH DFS ALGORITHM
+ * DEPTH FIRST SEARCH (DFS) ALGORITHM
  *
  * A graph traversal algorithm which explores as far as possible along each branch before backtracking.
  * It models a stack to keep track of the nodes on the current search path either through recursion or the actual data structure.
@@ -16,7 +16,7 @@ int recursiveDFS(vector<vector<int>>& graph, vector<bool> visited, int startNode
  *
  */
 
-int iterativeDFS(vector<vector<int>>& graph, int startNode) {
+void iterativeDFS(vector<vector<int>>& graph, int startNode) {
     vector<bool> visited(graph.size());
     stack<int> stack;
 
@@ -39,7 +39,9 @@ int iterativeDFS(vector<vector<int>>& graph, int startNode) {
     }
 }
 
-int recursiveDFS(vector<vector<int>>& graph, vector<bool> visited, int startNode) {
+void recursiveDFS(vector<vector<int>>& graph, vector<bool> visited, int startNode) {
+    if (visited[startNode]) return;
+
     visited[startNode] = true;
     cout << startNode << " ";
     for (int neighbor : graph[startNode]) {
