@@ -6,7 +6,7 @@ using namespace std;
 void bfs(vector<vector<int>>& graph, vector<bool> visited, int startNode);
 
 /*
- * BREADTH FIRST SEARCH (DFS) ALGORITHM
+ * BREADTH FIRST SEARCH (BFS) ALGORITHM
  *
  * A graph traversal algorithm that explores all nodes at the present depth before moving on to nodes at the next depth level by using a queue
  *
