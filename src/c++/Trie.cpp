@@ -19,7 +19,7 @@ const int ALPHABET_SIZE = 26;
  */
 
 struct Node {
-    Node* letters[ALPHABET_SIZE]{}; // English alphabet
+    Node* letters[ALPHABET_SIZE]{};
     int* val = nullptr;
     Node() {
         for (auto & letter : letters) letter = nullptr; // initialize all letters as NULL
@@ -42,6 +42,7 @@ public:
             root->val = new int;
         }
 
+        // keep going down and inserting characters by setting their NODE to NOT NULL
         Node* curr = root;
         for (char i : word) {
             int index = i - 97;
@@ -50,12 +51,13 @@ public:
             }
             curr = curr->letters[index];
         }
-        curr->val = new int(val);
+        curr->val = new int(val); // give the last letter a value to indicate end of word
     }
 
     int search(const string& word) {
         if (root == nullptr) return false;
 
+        // keep going through letters to find an end of word value
         Node* curr = root;
         for (char i : word) {
             int index = i - 97;
@@ -97,7 +99,7 @@ public:
         if (depth == word.size()) { // at the end of the word
             if (node->val != nullptr) node->val = nullptr;
 
-            if (isEmpty(node)) {
+            if (isEmpty(node)) { // if the last character has no future references
                 delete node;
                 node = nullptr;
             }
@@ -105,6 +107,7 @@ public:
             return node;
         }
 
+        // go down each letter and recursion will backtrack you from the bottom to the top
         int index = word[depth] - 97;
         node->letters[index] = remove(node->letters[index], word, depth+1);
 
