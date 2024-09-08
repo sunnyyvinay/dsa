@@ -3,6 +3,14 @@
 #include <stack>
 using namespace std;
 
+/*
+ * Topological Sort ALGORITHM
+ *
+ * Sorts vertices based on their order of dependencies.
+ * Only works for directed, acyclic graphs (DAGs).
+ *
+ */
+
 void topologicalSortUtil(int v, vector<vector<int>>& adj, vector<bool>& visited, stack<int>& Stack) {
     visited[v] = true;
 
