@@ -9,3 +9,4 @@ Algorithms.iml
 src/c++/test.cpp
 CMakeLists.txt
 cmake-build-debug/
+cmake-build-main/

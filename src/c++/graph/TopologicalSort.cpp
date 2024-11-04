@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <stack>
+#include <queue>
 using namespace std;
 
 /*
@@ -9,45 +9,51 @@ using namespace std;
  * Sorts vertices based on their order of dependencies.
  * Only works for directed, acyclic graphs (DAGs).
  *
+ * Time complexity: O(m+n)
+ *
  */
 
-void topologicalSortUtil(int v, vector<vector<int>>& adj, vector<bool>& visited, stack<int>& Stack) {
-    visited[v] = true;
+void topologicalSort(vector<vector<int>>& L_in, vector<vector<int>>& L_out, int n) {
+    vector<int> in_deg(n, -1);
+    queue<int> Q;
 
-    for (int i : adj[v]) {
-        if (!visited[i]) topologicalSortUtil(i, adj, visited, Stack);
+    for (int i = 0; i < n; i++) {
+        in_deg[i] = L_in[i].size();
+        if (in_deg[i] == 0) Q.push(i);
     }
 
-    // Push current vertex to stack which stores the result
-    Stack.push(v);
-}
+    while (!Q.empty()) {
+        int i = Q.front();
+        Q.pop();
+        cout << i << " ";
 
-void topologicalSort(vector<vector<int>>& adj, int V) {
-    stack<int> Stack;
-    vector<bool> visited(V, false);
-
-    for (int i = 0; i < V; i++) {
-        if (!visited[i]) topologicalSortUtil(i, adj, visited, Stack);
-    }
-
-    while (!Stack.empty()) {
-        cout << Stack.top() << " ";
-        Stack.pop();
+        for (int neighbor : L_out[i]) {
+            in_deg[neighbor]--;
+            if (in_deg[neighbor] == 0) Q.push(neighbor);
+        }
     }
 }
 
 int main() {
-    int V = 4; // number of nodes
+    int n = 4; // number of nodes
 
-    vector<vector<int>> edges = { { 0, 1 }, { 1, 2 }, { 3, 1 }, { 3, 2 } };
-    vector<vector<int> > adj(V);
-
-    for (auto i : edges) {
-        adj[i[0]].push_back(i[1]);
-    }
+    // L_in[i] = vertices that go into vertex i
+    vector<vector<int>> L_in = {
+            {},
+            {0, 3},
+            {1, 3},
+            {}
+    };
+    // L_out[i] = vertices that go out of vertex i
+    vector<vector<int>> L_out = {
+            {1},
+            {2},
+            {},
+            {1, 2}
+    };
 
     cout << "Topological sorting of the graph: ";
-    topologicalSort(adj, V);
+    topologicalSort(L_in, L_out, n);
     cout << endl;
 
     return 0;
