@@ -2,58 +2,61 @@
 #include <vector>
 using namespace std;
 
-void sort(vector<int>& arr, int begin, int end);
+vector<int> merge_sort(vector<int> arr);
 
 /*
  * MERGE SORT ALGORITHM
  *
- * The array is recursively split in half until all subarrays have 1 or 0 elements.
+ * This sort algorithm using Divide and Conquer. The array is recursively split in half until all subarrays have 1 or 0 elements.
  * Then each of these subarrays is merged using the merging algorithm.
  *
  * O(NlogN), stable, comparison, NOT inplace, recursion, merging, divide and conquer
  * 
  */
 
-void sort(vector<int>& arr, int begin, int end) {
-    if (end <= begin) return;
+vector<int> merge_sort(vector<int> arr) {
+    // BASE CASE
+    if (arr.size() <= 1) return arr;
 
-    int mid = (begin + end) / 2;
-    sort(arr, begin, mid);
-    sort(arr, mid+1, end);
+    // DIVIDE STEP
+    int mid = arr.size() / 2;
+    vector<int> arr1, arr2;
+    for (int i = 0; i < mid; i++) arr1.push_back(arr[i]);
+    for (int i = mid; i < arr.size(); i++) arr2.push_back(arr[i]);
 
-    // MERGE INTO 1 ARRAY
-    vector<int> temp = {};
-    int i1 = begin;
-    int i2 = mid+1;
-    while (i1 <= mid && i2 <= end) {
-        if (arr[i1] <= arr[i2]) {
-            temp.push_back(arr[i1]);
+    // RECURSE STEP
+    vector<int> sorted_arr1 = merge_sort(arr1);
+    vector<int> sorted_arr2 = merge_sort(arr2);
+
+    // MERGE/RECOMBINE STEP
+    vector<int> sorted_arr = {};
+    int i1 = 0;
+    int i2 = 0;
+    while (i1 < sorted_arr1.size() && i2 < sorted_arr2.size()) {
+        if (sorted_arr1[i1] <= sorted_arr2[i2]) {
+            sorted_arr.push_back(sorted_arr1[i1]);
             i1++;
         } else {
-            temp.push_back(arr[i2]);
+            sorted_arr.push_back(sorted_arr2[i2]);
             i2++;
         }
     }
-    while (i1 <= mid) {
-        temp.push_back(arr[i1]);
+    while (i1 < sorted_arr1.size()) {
+        sorted_arr.push_back(sorted_arr1[i1]);
         i1++;
     }
-    while (i2 <= end) {
-        temp.push_back(arr[i2]);
+    while (i2 < sorted_arr2.size()) {
+        sorted_arr.push_back(sorted_arr2[i2]);
         i2++;
     }
 
-    int i = 0;
-    for (int z = begin; z <= end; z++) {
-        arr[z] = temp[i];
-        i++;
-    }
+    return sorted_arr;
 }
 
 int main() {
     vector<int> arr = {6, 3, -1, 0, 4, 2, 1, 3, 5}; // -1 0 1 2 3 3 4 5 6
-    sort(arr, 0, 8);
-    for (int i : arr) {
+    vector<int> sorted = merge_sort(arr);
+    for (int i : sorted) {
         cout << i << " ";
     }
     cout << endl;
