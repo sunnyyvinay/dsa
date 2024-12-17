@@ -27,13 +27,13 @@ vector<vector<Edge*>> findMST(vector<vector<Edge*>>& graph, int startNode);
 */
 
 vector<vector<Edge*>> findMST(vector<vector<Edge*>>& graph, int startNode) {
-    vector<int> A(graph.size(), INT_MAX);
+    vector<int> A(graph.size(), INT_MAX); // minimum attachment cost for each vertex
     priority_queue<Pair, vector<Pair>, greater<Pair>> P; // min-heap
-    vector<vector<Edge*>> T;
+    vector<vector<Edge*>> T; // spanning tree
     for (int i = 0; i < graph.size(); i++) {
         T.push_back({});
     }
-    vector<int> parent(graph.size());
+    vector<int> parent(graph.size()); // keeps track of each node's parents (edge with min attachment cost)
 
     A[startNode] = 0;
     P.push(make_pair(0, startNode));
@@ -44,6 +44,7 @@ vector<vector<Edge*>> findMST(vector<vector<Edge*>>& graph, int startNode) {
         P.pop();
 
         if (currNode != startNode) {
+            // add this node and min edge to the MST
             T[parent[currNode]].push_back(new Edge(currNode, attachWeight));
             T[currNode].push_back(new Edge(parent[currNode], attachWeight));
         }
