@@ -24,11 +24,11 @@ vector<vector<Edge*>> findMST(vector<vector<Edge*>>& graph, int startNode);
  *
  * Time complexity: O(m*log(n))
  *
- */
+*/
 
 vector<vector<Edge*>> findMST(vector<vector<Edge*>>& graph, int startNode) {
     vector<int> A(graph.size(), INT_MAX);
-    priority_queue<Pair, vector<Pair>, greater<Pair>> P;
+    priority_queue<Pair, vector<Pair>, greater<Pair>> P; // min-heap
     vector<vector<Edge*>> T;
     for (int i = 0; i < graph.size(); i++) {
         T.push_back({});

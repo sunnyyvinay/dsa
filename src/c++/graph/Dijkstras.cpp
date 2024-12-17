@@ -29,7 +29,7 @@ vector<int> findPath(vector<vector<Edge*>>& graph, int startNode);
 
 vector<int> findPath(vector<vector<Edge*>>& graph, int startNode) {
     vector<int> distances(graph.size(), INT_MAX);
-    priority_queue<Pair, vector<Pair>, greater<Pair>> P;
+    priority_queue<Pair, vector<Pair>, greater<Pair>> P; // min-heap
 
     distances[startNode] = 0;
     P.push(make_pair(0, startNode));
