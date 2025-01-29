@@ -159,13 +159,12 @@ public:
         return min->value;
     }
 
-    bool isBST(Node* node, Node* left, Node* right) {
+    bool isBST(Node* node, int minVal, int maxVal) {
         if (node == nullptr) return true;
 
-        if (left != nullptr && left->value >= node->value) return false;
-        if (right != nullptr && right->value <= node->value) return false;
+        if (node->value < minVal || node->value > maxVal) return false;
 
-        return isBST(node->left, left, node) && isBST(node->right, node, right);
+        return isBST(node->left, minVal, node->value) && isBST(node->right, node->value, maxVal);
     }
 private:
     Node* root;
@@ -197,7 +196,7 @@ int main() {
     cout << endl << bst.height(bst.getRoot()) << endl;                     // 3
     cout << bst.getMax() << endl;                                                // 14
     cout << bst.getMin() << endl;                                                // 1
-    cout << bst.isBST(bst.getRoot(), nullptr, nullptr) << endl;  // true
+    cout << bst.isBST(bst.getRoot(), INT_MIN, INT_MAX) << endl;  // true
     bst.remove(7);
     bst.in_order_traversal(bst.getRoot());                                 // 1 3 4 6 8 10 13 14
     cout << endl;
