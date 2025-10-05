@@ -13,7 +13,7 @@ public:
         this->to = to;
     }
 };
-typedef pair<int, int> Pair; // 1 - distance, 2 - node
+
 vector<int> findPath(vector<vector<Edge*>>& graph, int startNode);
 
 /*
@@ -29,18 +29,18 @@ vector<int> findPath(vector<vector<Edge*>>& graph, int startNode);
 
 vector<int> findPath(vector<vector<Edge*>>& graph, int startNode) {
     vector<int> distances(graph.size(), INT_MAX);
-    priority_queue<Pair, vector<Pair>, greater<Pair>> P; // min-heap
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> P; // min-heap with pair <distance, node>
 
     distances[startNode] = 0;
-    P.push(make_pair(0, startNode));
+    P.push(pair<int, int>(0, startNode));
     while (!P.empty()) {
-        Pair curr = P.top();
+        pair<int, int> curr = P.top();
         int currNode = curr.second;
         P.pop();
-        for (Edge* neighbor : graph[curr.second]) {
+        for (Edge* neighbor : graph[currNode]) {
             if (distances[currNode] + neighbor->weight < distances[neighbor->to]) {
                 distances[neighbor->to] = distances[currNode] + neighbor->weight;
-                P.push(make_pair(distances[neighbor->to], neighbor->to));
+                P.push(pair<int, int>(distances[neighbor->to], neighbor->to));
             }
         }
     }

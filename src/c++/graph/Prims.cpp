@@ -13,7 +13,7 @@ public:
         this->to = to;
     }
 };
-typedef pair<int, int> Pair; // 1 - attachment cost, 2 - node
+
 vector<vector<Edge*>> findMST(vector<vector<Edge*>>& graph, int startNode);
 
 /*
@@ -28,7 +28,7 @@ vector<vector<Edge*>> findMST(vector<vector<Edge*>>& graph, int startNode);
 
 vector<vector<Edge*>> findMST(vector<vector<Edge*>>& graph, int startNode) {
     vector<int> A(graph.size(), INT_MAX); // minimum attachment cost for each vertex
-    priority_queue<Pair, vector<Pair>, greater<Pair>> P; // min-heap
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> P; // min-heap with pair <attachment cost, node>
     vector<vector<Edge*>> T; // spanning tree
     for (int i = 0; i < graph.size(); i++) {
         T.push_back({});
@@ -36,9 +36,9 @@ vector<vector<Edge*>> findMST(vector<vector<Edge*>>& graph, int startNode) {
     vector<int> parent(graph.size()); // keeps track of each node's parents (edge with min attachment cost)
 
     A[startNode] = 0;
-    P.push(make_pair(0, startNode));
+    P.push(pair<int, int>(0, startNode));
     while (!P.empty()) {
-        Pair curr = P.top();
+        pair<int, int> curr = P.top();
         int currNode = curr.second;
         int attachWeight = curr.first;
         P.pop();
